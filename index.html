@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            1/ Layout, start from biggest container, move in (use background color)
+            2/ Get everything on the page (content)
+        */
+        var profile = {
+            userName: '@aaronjack',
+            displayName: 'Aaron Jack',
+            twittsCount: 3452,
+            coverPhoto: 'https://pbs.twimg.com/profile_banners/702764414626349056/1597082056/1500x500',
+            avatarPhoto: 'https://pbs.twimg.com/profile_images/1288150367621046273/ZxRcBgVz_400x400.jpg',
+            description: 'Assistance Dog Owner 🇪🇺#remainer #LibDem 🇪🇺 Photographer, Videographer, LFC, Disabled, Fibro, CFS, MS Warrior. Passionate about NHS',
+            location: 'England, UK',
+            site: 'prozorro.gov.ua',
+            registrationDate: 'Octovber 2016',
+            followerCount: 1200,
+            followingCount: 500,
+            tweets: [
+                {text: 'my third tweet', date: new Date(Date.now() - 100000)},
+                {text: 'my second tweet', date: new Date(Date.now() - 1000000)},
+                {text: 'my first tweet', date: new Date(Date.now() - 10000000)},
+            ]
+        }
+        console.log(profile.tweets.date)
+        document.body.innerHTML = `
+        <div class="header">
+            <div class="back">
+                <i class="fas fa-chevron-left"></i>
+                <div class= "back-right">
+                    <div class="display-name title">${profile.displayName}</div>
+                    <div class="twitts-count second-color">${profile.twittsCount} twitts</div>
+                </div>
+            </div> 
+            <div class="container-img">
+                <div class="background-container">
+                    <img src="${profile.coverPhoto}" alt="prozorro" class="backround-img">
+                </div>
+                <div class="logo-container">
+                    <img src="${profile.avatarPhoto}" alt="logo" class="logo">
+                </div>
+            </div>
+            <div class="user-information">
+                <div class="display-name title">${profile.displayName}</div>
+                <div class="user-name second-color">${profile.userName}</div>
+                <div class="description">${profile.description}</div>
+                <div class="registration">
+                    <div class="country second-color">${profile.location}</div>
+                    <div class="site">
+                        <a href="" class="link-site navigation-color">${profile.site}</a>
+                    </div>
+                    <div class="registration-date second-color">${profile.registrationDate}</div>
+                </div>
+            </div>
+            <div class="tweet-container">
+                
+            </div>
+            </div>
+        `
+        for(let i = 0; i < profile.tweets.length; i++) {
+            console.log(profile.tweets);
+            const tweetContainer = document.querySelector('.tweet-container');
+            const tweetEl = document.createElement('div');
+            tweetEl.innerHTML = 
+            `<div id="tweet">
+                <div id="tw-logo-container">    
+                    <img src="${profile.avatarPhoto}" alt="logo" class="tw-logo">
+                </div>
+                <div id="tw-text-container">
+                    <div class="display-name title">${profile.displayName}</div>
+                    <div class="second-color date-publish">${moment(profile.tweets[i].date).fromNow()}</div>
+                        <div class="description">${profile.tweets[i].text}</div>
+                </div>
+            </div>`
+            tweetContainer.appendChild(tweetEl);
+        }
+        //1. loop profile.tweets
+        //2. query.selector(container)
+        //3. create a new str with data()
+        //3. appenr data (innerHtml)
+
+    </script>
+</body>
+</html>
+
+
