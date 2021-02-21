@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
-    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
+    <link rel="stylesheet" href="modal.css">
+   <title>Twitter</title>
 </head>
 <body>
     <script>
-        /*
-            1/ Layout, start from biggest container, move in (use background color)
-            2/ Get everything on the page (content)
-        */
         var profile = {
             userName: '@aaronjack',
             displayName: 'Aaron Jack',
@@ -47,12 +44,29 @@
                 </div>
                 <div class="logo-container">
                     <img src="${profile.avatarPhoto}" alt="logo" class="logo">
+                    <a class="modal-show" href="#modal">Tweet</a>
+                <div class="modal" id="modal">
+                <div class="modal-content">
+                    <div id="tweet">
+                <div id="tw-logo-container">    
+                    <img src="img/logo.jpg" alt="logo" class="tw-logo">
                 </div>
+                <div id="tw-text-container">
+                    <input type="text" placeholder="Sent a tweet" class="tweet-text">
+                </div>
+                <div class="modal-icons">
+                    <a class="sent-tweet-btn" href="#modal">Tweet</a>
+                </div> 
+            </div>
+                    <a class="modal-hide" href="#">✕</a>
+                </div>
+                </div>
+            </div>
             </div>
             <div class="user-information">
                 <div class="display-name title">${profile.displayName}</div>
-                <div class="user-name second-color">${profile.userName}</div>
-                <div class="description">${profile.description}</div>
+                <div class="user-name">${profile.userName}</div>
+                <div class="description main-text">${profile.description}</div>
                 <div class="registration">
                     <div class="country second-color">${profile.location}</div>
                     <div class="site">
@@ -66,6 +80,25 @@
             </div>
             </div>
         `
+            const sentTweet = document.querySelector('.sent-tweet-btn');
+            sentTweet.addEventListener('click', function() {
+                const findText = document.querySelector('.tweet-text').value;
+                const tweetContainer = document.querySelector('.tweet-container');
+                const tweetEl = document.createElement('div');
+                tweetEl.innerHTML = 
+                `<div id="tweet">
+                    <div id="tw-logo-container">    
+                        <img src="${profile.avatarPhoto}" alt="logo" class="tw-logo">
+                    </div>
+                    <div id="tw-text-container">
+                        <div class="display-name title">${profile.displayName}</div>
+                        <div class="second-color date-publish">${moment(new Date()).fromNow()}</div>
+                            <div class="description">${findText}</div>
+                    </div>
+                </div>`
+                tweetContainer.appendChild(tweetEl);
+            })
+
         for(let i = 0; i < profile.tweets.length; i++) {
             console.log(profile.tweets);
             const tweetContainer = document.querySelector('.tweet-container');
@@ -82,12 +115,7 @@
                 </div>
             </div>`
             tweetContainer.appendChild(tweetEl);
-        }
-        //1. loop profile.tweets
-        //2. query.selector(container)
-        //3. create a new str with data()
-        //3. appenr data (innerHtml)
-
+        }   
     </script>
 </body>
 </html>
