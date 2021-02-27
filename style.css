@@ -111,7 +111,7 @@ i.fas:first-child,
   display: flex;
 }
 
-#tweet {
+.tweet {
   display: flex;
   border-bottom: 0.1px solid var(--border-color);
 }
