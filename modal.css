@@ -1,6 +1,6 @@
 :root {
   --main-color: #070707;
-  --border-color: rgb(224, 220, 220);
+  --border-color: rgb(224, 220, 220);;
   --navigation-color: #2681e9;
   font: 800 14px "Merriweather", sans-serif;
 }
@@ -68,16 +68,19 @@
   }
 }
 
-#modal-tweet {
+.modal-tweet {
   height: 100%;
   display: flex;
+  padding: 0px 10px 5px;
+  border-bottom: 0.1px solid var(--border-color);
 }
 
 .tweet-text {
   width: 350px;
   border-color: transparent;
   margin-left: 20px;
-  padding-top: 20px;
+  overflow: hidden;
+  height: 100px;
 }
 
 .modal-icons {
@@ -87,7 +90,6 @@
 
 .icons {
   align-items: flex-end;
-  padding-top: 60px;
   display: flex;
   justify-content: space-between;
 }

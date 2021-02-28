@@ -10,11 +10,11 @@
   font: 300 16px "Heebo", sans-serif;
 }
 
-body {
-  /* margin: 0px 200px;
-  width: 60%; */
-}
+/* body {
+  width: 900px;
+} */
 
+/* @media (min-width: 700px) { */
 .container,
 .header {
   width: 50%;
@@ -26,14 +26,12 @@ body {
 
 .title {
   font: 800 18px "Merriweather", sans-serif;
-  padding: 10px 10px 0px 0px;
 }
 
 .second-color {
   font: 800 16px "Heebo", sans-serif;
   color: var(--second-color);
   padding-right: 10px;
-  padding-top: 10px;
 }
 
 .main-text {
@@ -49,6 +47,10 @@ body {
   padding-right: 10px;
   color: var(--navigation-color);
   text-decoration: none;
+}
+
+.link-site {
+  font: 800 16px "Heebo", sans-serif;
 }
 
 .back {
@@ -117,16 +119,21 @@ i.fas:first-child,
 }
 
 .tw-logo {
-  height: 50px;
+  height: 30px;
   width: 50px;
   border-radius: 50%;
 }
 
 #tw-logo-container {
   width: 10%;
-  padding: 10px 0px 10px 10px;
 }
 
-.tw-text-container {
+#tw-text-container {
   width: 90%;
+  padding-left: 10px;
 }
+
+.description {
+  font: 300 16px "Heebo", sans-serif;
+  }
+

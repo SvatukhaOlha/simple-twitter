@@ -51,7 +51,7 @@
                 <div id="tw-logo-container">    
                     <img src="img/logo.jpg" alt="logo" class="tw-logo">
                     <div id="tw-text-container">
-                     <input type="text" placeholder="Sent a tweet" class="tweet-text">
+                        <textarea name="Text1" rows="5" cols="33" class="auto-height tweet-text" oninput="auto_height(this)" placeholder="Sent a tweet" maxlength="150" minlength="10"></textarea>
                     </div>
                 </div>
                 <div class="icons">
@@ -113,7 +113,7 @@
             const tweetContainer = document.querySelector('.tweet-container');
             const tweetEl = document.createElement('div');
             tweetEl.innerHTML = 
-            `<div id="modal-tweet">
+            `<div class="modal-tweet">
                 <div id="tw-logo-container">    
                     <img src="${profile.avatarPhoto}" alt="logo" class="tw-logo">
                 </div>
@@ -144,7 +144,12 @@
                 })
             });
 
-
+        //textaera with auto height 
+        // const autoHeight = document.querySelector('.auto-height');
+        // function auto_height() {  
+        // autoHeight.style.height = "1px";
+        // autoHeight.style.height = (autoHeight.scrollHeight)+"px";
+        // }
 
             
     </script>
